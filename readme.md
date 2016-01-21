@@ -10,7 +10,7 @@ What you build is up to you, but you must follow these requirements:
 
 * Your Angular app must have at least TWO client-side routes (use either `ngRoute` or `ui-router`) with associated templates and controllers.
 * Your Angular app must send at least ONE HTTP request (use either `$http` or `ng-resource`) to any server.
-* In terms of your server, you have choices:
+* In terms of your server / back-end, you have choices:
 	* External API
 	* Node/Express
 	* Rails
