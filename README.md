@@ -12,13 +12,9 @@ It is good idea to build "from the outside, in" -- meaning you build out the fro
 
 This process helps a lot with freelance and contract work because your clients will get excited to see a prototype that is working and navigable. You haven't sunk much time into it, so if a client wants you to change something, it is easy to do!
 
-**Focus on the frontend**:
+**Focus on the frontend**: Use HTML, CSS, and jQuery or Angular.
 
-Use HTML, CSS, and jQuery or Angular.
-
-**Don't worry about the backend at first**:
-
-You can stub out something basic if you have time. But start with hardcoded data.
+**Don't worry about the backend at first**: You can stub out something basic if you have time. But start with hardcoded data.
 
 ## App Ideas
 
