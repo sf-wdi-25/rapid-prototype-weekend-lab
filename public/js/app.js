@@ -1,4 +1,3 @@
-
 /* CLIENT-SIDE JS
  *
  * You may edit this file as you see fit.  Try to separate different components
@@ -7,67 +6,91 @@
  */
 
 
+/* hard-coded data! */
+// var foodList =[];
+// foodList.push({
+//              item: 'Spam Musubi',
+//              name: 'Hawaiian Treat',
+//              image: ''
+//            });
+// foodList.push({
+//              item: 'Poké',
+//              name: 'Yummy Fish',
+//              image: ''             
+//            });
+// foodList.push({
+//              item: 'Loco Moco',
+//              name: 'Yummy Goodness',
+//              image: ''             
+//            });
+// /* end of hard-coded data */
 
 
+// $(document).ready(function() {
+//   console.log('app.js loaded!');
+//   $.get('/api/foods').success(function (foods) {
+//     foods.forEach(function(food) {
+//       renderFood(food);
+//     });
 
+//   });
+// });
 
+//Client Side Ajax call for reading Stations for Suggestion Page
 
-$(document).ready(function() {
-  console.log('app.js loaded!');
-  $.get('/api/albums').success(function (albums) {
-    albums.forEach(function(album) {
-      renderAlbum(album);
-    });
-
+$(document).on('ready', function() {
+  var searchUrl = "/api/foods";
+  var results = $('#foods');
+  var source = $('#food-template').html();
+  // console.log(source);
+  var template = Handlebars.compile(source);
+  $.ajax({
+    method: 'GET',
+    url: searchUrl,
+    success: function (data) {
+      data.forEach(function(suggestion) {
+        // console.log("this is the suggest id", suggestion._id)
+        var html = template(suggestion);
+        $('#foods').append(html);
+      });
+    }
   });
+
+// Submitting suggestion for Post
+  $('.form-horizontal').on('submit', function(e) {
+    console.log("It works!");
+    e.preventDefault();
+    console.log($(this));
+      var formData = $(this).serialize();
+      //console.log(formData);
+
+    $.ajax({
+        method: "POST",
+        url: searchUrl,
+        data: formData,
+        success: function (data) {
+          console.log(data);
+        var html = template(data);
+        $('#foods').append(html);
+        }
+      });
+
+  }); 
+      
+// Suggestion Station Delete
+  $('#foods').on('click', '.delete-food', function(e) {
+    console.log("It Works!");
+    var id = $(this).parents('.food').data('food-id');
+    console.log("this is the food id", id);
+
+    $.ajax({
+      method: 'DELETE',
+      url: ('/api/foods/' + id),
+      success: function() {
+        console.log("Food Deleted!");
+        $('[data-food-id=' + id + ']').remove();
+      }   
+    });
+  });
+
 });
-
-
-
-
-
-// this function takes a single album and renders it to the page
-function renderAlbum(album) {
-  console.log('rendering album:', album);
-
-  var albumHtml =
-  "        <!-- one album -->" +
-  "        <div class='row album' data-album-id='" + "HARDCODED ALBUM ID" + "'>" +
-  "          <div class='col-md-10 col-md-offset-1'>" +
-  "            <div class='panel panel-default'>" +
-  "              <div class='panel-body'>" +
-  "              <!-- begin album internal row -->" +
-  "                <div class='row'>" +
-  "                  <div class='col-md-3 col-xs-12 thumbnail album-art'>" +
-  "                     <img src='" + "http://placehold.it/400x400'" +  " alt='album image'>" +
-  "                  </div>" +
-  "                  <div class='col-md-9 col-xs-12'>" +
-  "                    <ul class='list-group'>" +
-  "                      <li class='list-group-item'>" +
-  "                        <h4 class='inline-header'>Album Name:</h4>" +
-  "                        <span class='album-name'>" + album.name + "</span>" +
-  "                      </li>" +
-  "                      <li class='list-group-item'>" +
-  "                        <h4 class='inline-header'>Artist Name:</h4>" +
-  "                        <span class='artist-name'>" + album.artistName + "</span>" +
-  "                      </li>" +
-  "                      <li class='list-group-item'>" +
-  "                        <h4 class='inline-header'>Released date:</h4>" +
-  "                        <span class='album-name'>" + album.releaseDate + "</span>" +
-  "                      </li>" +
-  "                    </ul>" +
-  "                  </div>" +
-  "                </div>" +
-  "                <!-- end of album internal row -->" +
-
-  "              </div>" + // end of panel-body
-
-  "              <div class='panel-footer'>" +
-  "              </div>" +
-
-  "            </div>" +
-  "          </div>" +
-  "          <!-- end one album -->";
-
-  $('#albums').prepend(albumHtml);
- }

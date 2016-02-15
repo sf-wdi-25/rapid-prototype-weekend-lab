@@ -3,9 +3,10 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var SuggestSchema = new Schema({
+var FoodSchema = new Schema({
   item: String,
-  description: String
+  description: String,
+  image: String
 });
 
 var Food = mongoose.model('Food', FoodSchema);

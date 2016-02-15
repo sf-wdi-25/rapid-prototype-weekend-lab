@@ -8,7 +8,8 @@
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
+
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -44,7 +45,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="./">Home<span class="sr-only">(current)</span></a></li>
-          <li class="active"><a href="/suggest">Food<span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="/food">Food<span class="sr-only">(current)</span></a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -59,7 +60,7 @@
 
 <!-- BEGIN FORM SAMPLE of Suggesting a new food item -->
 
-<section id='suggest-form' class="container">
+<section id='add-food' class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <form class="form-horizontal">
@@ -68,7 +69,7 @@
             <legend>Food</legend>
             <!-- Text input-->
               <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Item:</label>
+                <label class="col-md-4 control-label" for="food_item">Item:</label>
               <div class="col-md-4">
                 <input id="textinput" name="item" type="text" placeholder="" class="form-control input-md" required="">
               </div>
@@ -76,11 +77,19 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="station_suggestion">Description:</label>
+                <label class="col-md-4 control-label" for="food_description">Description:</label>
               <div class="col-md-4">
                 <input id="textinput" name="description" type="text" placeholder="" class="form-control input-md">
               </div>
             </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="food_image">Image:</label>
+              <div class="col-md-4">
+                <input id="textinput" name="description" type="text" placeholder="" class="form-control input-md">
+              </div>
+            </div>            
 
             <!-- Button -->
             <div class="form-group">
@@ -97,20 +106,21 @@
 
 <!--   END FORM SAMPLE -->
 
-<!-- Suggested Stations! -->
-<div id='food'>
+<!-- Food -->
+<section>
+<div id='foods'>
 </div>
   </section>
 
 <!-- handlebars template to render-->
 <script id="food-template" type="text/x-handlebars-template">
 
-  <!-- one station -->
-  <div class='row food' data-station-id='{{_id}}'>
+  <!-- one food -->
+  <div class='row food' data-food-id='{{_id}}'>
     <div class='container'>
       <div class='col-md-10 col-md-offset-1'>
           <div class='panel-body'>
-            <!-- begin station internal row -->
+            <!-- begin food internal row -->
               <div class='row'>
                 <ul class='list-group'>
                   <li class='list-group-item'>
@@ -120,14 +130,18 @@
                   <li class='list-group-item'>
                     <h4 class='inline-header'>Description:</h4>
                       <span class='food-description'>{{description}}</span>
-                  </li>                    
+                  </li>
+                  <li class='list-group-item'>
+                    <h4 class='inline-header'>Image:</h4>
+                      <span class='food-image'>{{image}}</span>
+                  </li>                             
                 </ul>
               </div>
               <div>
-                <button class='btn btn-danger delete-station'>Delete Station</button>
+                <button class='btn btn-danger delete-food'>Delete food</button>
               </div> 
             </div>
-          <!-- end of station internal row --> 
+          <!-- end of food internal row --> 
     </div>
   </div>
  </div> 
