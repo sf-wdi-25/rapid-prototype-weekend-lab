@@ -76,6 +76,27 @@ $(document).on('ready', function() {
       });
     $(this).trigger("reset");
   }); 
+
+// Food for Edit
+  $('#foods').on('click', '.edit-food', function(e) {
+    console.log("It works!");
+    e.preventDefault();
+    console.log($(this));
+      var formData = $(this).serialize();
+      //console.log(formData);
+
+    $.ajax({
+        method: "PUT",
+        url: searchUrl,
+        data: formData,
+        success: function (data) {
+          console.log(data);
+        var html = template(data);
+        $('#foods').append(html);
+        }
+      });
+    $(this).trigger("reset");
+  });   
       
 // Food Delete
   $('#foods').on('click', '.delete-food', function(e) {

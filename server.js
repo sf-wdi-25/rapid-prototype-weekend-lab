@@ -66,6 +66,23 @@ app.delete('/api/foods/:id', function foodIndex(req, res) {
   });
 });
 
+// Edit Food
+app.put('/api/foods/:id', function updateFood(req, res) {
+  console.log('updating id ', req.params.id);
+  console.log('received body ', req.body);
+
+  db.Food.findOne({_id: req.params.id}, function(err, foundFood) {
+    if (err) { console.log('error', err); }
+    foundFood.item = req.body.item;
+    foundFood.description = req.body.description;
+    foundFood.image = req.body.image;
+    foundFood.save(function(err, saved) {
+      if(err) { console.log('error', err); }
+      res.json(saved);
+    });
+  });
+});
+
 // app.listen(process.env.PORT || 3000)
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
