@@ -37,7 +37,7 @@ app.get('/foods', function foodsIndex(req, res) {
   });
 });
 
-// Read of the Suggestion Page of new Foods
+// Read of new Foods
 app.get('/api/foods', function foodIndex(req, res) {
   db.Food.find({}, function(err, food) {
     // console.log(food);
@@ -49,7 +49,7 @@ app.get('/api/foods', function foodIndex(req, res) {
 app.post('/api/foods', function foodCreate(req, res) {
   console.log("Create New Data");
   console.log('body', req.body);
-  db.Suggest.create(req.body, function(err, food) {
+  db.Food.create(req.body, function(err, food) {
     if (err) { console.log('error', err); }
     console.log(food);
     res.json(food);

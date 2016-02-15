@@ -3,13 +3,13 @@ body {
 }
 
 .jumbotron {
-  background-image: url(/images/restaurant.jpg);
+  background-image: url(/images/food.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   color: #EEE;
 }
 .jumbotron .container {
-  height: 400px;
+  height: 350px;
 }
 
 .inline-header {
