@@ -1,0 +1,22 @@
+{
+  "name": "rapid-prototype-weekend-lab",
+  "version": "1.0.0",
+  "description": "Rapid Prototype",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trebloc/rapid-prototype-weekend-lab.git"
+  },
+  "author": "Colbert Tse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trebloc/rapid-prototype-weekend-lab/issues"
+  },
+  "homepage": "https://github.com/trebloc/rapid-prototype-weekend-lab#readme",
+  "dependencies": {
+    "mongoose": "^4.4.3"
+  }
+}
