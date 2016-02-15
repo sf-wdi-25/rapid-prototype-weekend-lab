@@ -56,7 +56,7 @@ $(document).on('ready', function() {
     }
   });
 
-// Submitting suggestion for Post
+// Food for Post
   $('.form-horizontal').on('submit', function(e) {
     console.log("It works!");
     e.preventDefault();
@@ -74,10 +74,10 @@ $(document).on('ready', function() {
         $('#foods').append(html);
         }
       });
-
+    $(this).trigger("reset");
   }); 
       
-// Suggestion Station Delete
+// Food Delete
   $('#foods').on('click', '.delete-food', function(e) {
     console.log("It Works!");
     var id = $(this).parents('.food').data('food-id');

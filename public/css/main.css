@@ -7,13 +7,17 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   color: #EEE;
-}
-.jumbotron .container {
   height: 350px;
+  margin-bottom: 0px;  
 }
 
 .inline-header {
   display: inline-block;
   vertical-align: baseline;
   margin-right: 12px;
+}
+
+img {
+  width: 500px;
+  max-height: 50%;
 }

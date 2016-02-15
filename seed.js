@@ -5,19 +5,19 @@ var db = require("./models");
 
 var foodList =[];
 foodList.push({
-             item: 'Spam Musubi',
+             item: 'Chicken Katsu',
              description: 'Hawaiian Treat',
-             image: ''
+             image: 'http://www.foodland.com/files/imagecache/530x600/chicken_katsu.sm_.img_3410.jpg'
            });
 foodList.push({
              item: 'Poké',
              descrition: 'Yummy Fish',
-             image: ''             
+             image: 'http://www.hawaiiancafe.com/images/AhiPoke-2-1.png'             
            });
 foodList.push({
              item: 'Loco Moco',
              description: 'Yummy Goodness',
-             image: ''             
+             image: 'http://images.huffingtonpost.com/2012-09-26-322780_10152122273705244_866115423_o.jpeg'             
            });
 
 db.Food.remove({}, function(err, food){

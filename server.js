@@ -59,7 +59,7 @@ app.post('/api/foods', function foodCreate(req, res) {
 // Delete of the Suggested New Food
 app.delete('/api/foods/:id', function foodIndex(req, res) {
   console.log('deleting id:', req.params.id);
-  db.Suggest.remove({_id: req.params.id}, function(err, food) {
+  db.Food.remove({_id: req.params.id}, function(err, food) {
     if (err) {console.log('error', err); }
     console.log('food deleted: ' , req.params.id , food.Food);
     res.status(200).send();
