@@ -81,9 +81,11 @@ $(document).on('ready', function() {
   $('#foods').on('click', '.edit-food', function(e) {
     console.log("It works!");
     e.preventDefault();
+    var id = $(this).parents('.food').data('food-id');
+    console.log("this is the food id", id);    
     console.log($(this));
       var formData = $(this).serialize();
-      //console.log(formData);
+      console.log(formData);
 
     $.ajax({
         method: "PUT",
