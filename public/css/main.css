@@ -1,6 +1,6 @@
 body {
   font-size: 25px;
-  font-family: open-sans;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .jumbotron {
@@ -37,7 +37,7 @@ h1 {
 
 h1 span { 
    color: white; 
-   font: 35px/55px Helvetica, Sans-Serif; 
+   font: 35px/55px; 
    letter-spacing: -1px;  
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
