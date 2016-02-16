@@ -116,4 +116,8 @@ $(document).on('ready', function() {
     });
   });
 
+$('.list-group-item').imageScroll({
+    coverRatio: 0.5
+});  
+
 });
