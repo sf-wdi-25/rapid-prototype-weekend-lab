@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pot Luck: What Am I Bringing!</title>
+    <title>OHANA Pot Luck App: What Are You Bringing?</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
   <body>
     <div class="jumbotron">
       <div class="container">
-        <h1><span>Ohana Potluck App</span></h1>
+        <h1><span>OHANA Pot Luck App</span></h1>
       </div>
     </div>
 
@@ -47,7 +47,6 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="./">Home<span class="sr-only">(current)</span></a></li>
-          <li class="active"><a href="/food">Food<span class="sr-only">(current)</span></a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -55,8 +54,8 @@
 
     <section class="container">
       <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h2>PotLuck App: What Am I Bringing!</h2>
+        <div class="col-md-10 col-md-offset-1" id="tagline">
+          <h2>What Are You Bringing?</h2>
         </div>
       </div>
 
@@ -135,7 +134,7 @@
                   </li>
                   <li class='list-group-item'>
                     <h3 class='inline-header'><strong>Image:</strong></h3>
-                      <span class='food-image'><img src="{{image}}"></span>
+                      <span class='food-image'><img class="img-fluid" src="{{image}}"></span>
                   </li>                             
                 </ul>
               </div>
